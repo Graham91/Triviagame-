@@ -34,7 +34,7 @@
 
  function movetonextquestion(){
     $(".question").html(possiblequestions[questionindictator]);
-    for (var i = 0; i <= 4;i++){
+    for (var i = 0; i <= 4; i++){
          var answerid = '#answer'+i;
          var possibleanswer = [0, possibleanswer1[questionindictator], possibleanswer2[questionindictator], possibleanswer3[questionindictator], possibleanswer4[questionindictator]];
 
@@ -42,6 +42,30 @@
         }
  };
  movetonextquestion();
+ var setupclicksarray = [];
+ setupclicksarray[0] =[1,false,false,false,true];
+ setupclicksarray[1] =[1,false,false,true,false,];
+ setupclicksarray[2] =[1,false,true,false,false,];
+ setupclicksarray[3] =[1,false,true,false,false,];
+
+ setupclicks(setupclicksarray[questionindictator]);
+
+function setupclicks(testoptions){
+ ;
+
+     $("#answer1").on("click", function(){
+         console.log(testoptions[1]);
+         });
+     $("#answer2").on("click", function(){
+        console.log(testoptions[2]);
+     });
+     $("#answer3").on("click", function(){
+        console.log(testoptions[3]);
+     });
+     $("#answer4").on("click", function(){
+        console.log(testoptions[4]);
+     });
+    }
     </script>
 
 </body>
