@@ -19,10 +19,30 @@
                      <div id="answer2">test answer</div>
                      <div id="answer3">test answer</div>
                      <div id="answer4">test answer</div>
+                     <div id="picturediv"></div>
                  </div>
              </div>
 
     </div>
+    <script>
+    var possiblequestions = ["0?", "1?", "2?", "3?", "4?"];
+    var possibleanswer1 = [0, 1, 2, 3, 4];
+    var possibleanswer2 = [0, 1, 2, 3, 4];
+    var possibleanswer3 = [0, 1, 2, 3, 4];
+    var possibleanswer4 = [0, 1, 2, 3, 4];
+    var questionindictator = 3;
+
+ function movetonextquestion(){
+    $(".question").html(possiblequestions[questionindictator]);
+    for (var i = 0; i <= 4;i++){
+         var answerid = '#answer'+i;
+         var possibleanswer = [0, possibleanswer1[questionindictator], possibleanswer2[questionindictator], possibleanswer3[questionindictator], possibleanswer4[questionindictator]];
+
+         $(answerid).html(possibleanswer[i]);
+        }
+ };
+ movetonextquestion();
+    </script>
 
 </body>
 </html>
