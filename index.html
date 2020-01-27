@@ -31,6 +31,7 @@
     var possibleanswer3 = [0, 1, 2, 3, 4];
     var possibleanswer4 = [0, 1, 2, 3, 4];
     var questionindictator = 3;
+    var rightorwrongindictator = true;
 
  function movetonextquestion(){
     $(".question").html(possiblequestions[questionindictator]);
@@ -51,21 +52,37 @@
  setupclicks(setupclicksarray[questionindictator]);
 
 function setupclicks(testoptions){
- ;
+ 
 
      $("#answer1").on("click", function(){
-         console.log(testoptions[0]);
+         rightorwrongindictator = testoptions[0];
+         console.log(rightorwrongindictator);
+         winlose();
          });
      $("#answer2").on("click", function(){
-        console.log(testoptions[1]);
+        rightorwrongindictator = testoptions[1];
+         console.log(rightorwrongindictator);
+         winlose();
      });
      $("#answer3").on("click", function(){
-        console.log(testoptions[2]);
+        rightorwrongindictator = testoptions[2];
+         console.log(rightorwrongindictator);
+         winlose();
      });
      $("#answer4").on("click", function(){
-        console.log(testoptions[3]);
+        rightorwrongindictator = testoptions[3];
+         console.log(rightorwrongindictator);
+         winlose();
      });
     }
+function winlose(){
+    if (rightorwrongindictator === true){
+        console.log("you win");
+    }
+    else {
+        console.log("you lose");
+    }
+}
     </script>
 
 </body>
