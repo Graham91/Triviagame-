@@ -26,12 +26,15 @@
     </div>
     <script>
     var possiblequestions = ["0?", "1?", "2?", "3?", "4?"];
-    var possibleanswer1 = [0, 1, 2, 3, 4];
-    var possibleanswer2 = [0, 1, 2, 3, 4];
-    var possibleanswer3 = [0, 1, 2, 3, 4];
-    var possibleanswer4 = [0, 1, 2, 3, 4];
+    var possibleanswer1 = [0, 1, 2, "3a", 4];
+    var possibleanswer2 = [0, 1, 2, "3b", 4];
+    var possibleanswer3 = [0, 1, 2, "3c", 4];
+    var possibleanswer4 = [0, 1, 2, "3d", 4];
     var questionindictator = 3;
     var rightorwrongindictator = true;
+    var pictures =[0,1,2,3,4];
+    var answerclicked = "crazy"; 
+    var correctanswer = "bad"
 
  function movetonextquestion(){
     $(".question").html(possiblequestions[questionindictator]);
@@ -45,9 +48,9 @@
  movetonextquestion();
  var setupclicksarray = [];
  setupclicksarray[0] =[false,false,false,true];
- setupclicksarray[1] =[false,false,true,false,];
- setupclicksarray[2] =[false,true,false,false,];
- setupclicksarray[3] =[false,true,false,false,];
+ setupclicksarray[1] =[false,false,true,false];
+ setupclicksarray[2] =[false,true,false,false];
+ setupclicksarray[3] =[false,false,true,false];
 
  setupclicks(setupclicksarray[questionindictator]);
 
@@ -57,31 +60,60 @@ function setupclicks(testoptions){
      $("#answer1").on("click", function(){
          rightorwrongindictator = testoptions[0];
          console.log(rightorwrongindictator);
+         answerclicked = possibleanswer1[questionindictator];
+         console.log
          winlose();
          });
      $("#answer2").on("click", function(){
         rightorwrongindictator = testoptions[1];
          console.log(rightorwrongindictator);
+         answerclicked = possibleanswer2[questionindictator];
          winlose();
      });
      $("#answer3").on("click", function(){
         rightorwrongindictator = testoptions[2];
          console.log(rightorwrongindictator);
+         answerclicked = possibleanswer3[questionindictator];
          winlose();
      });
      $("#answer4").on("click", function(){
         rightorwrongindictator = testoptions[3];
          console.log(rightorwrongindictator);
+         answerclicked = possibleanswer4[questionindictator];
          winlose();
      });
     }
 function winlose(){
     if (rightorwrongindictator === true){
         console.log("you win");
+        clearAll();
+        $(".question").text("correct");
+        $("#picturediv").append(pictures[questionindictator]);
+    
     }
     else {
         console.log("you lose");
+        clearAll();
+        $(".question").html("incorrect");
+        $("#answer1").text("you choose: "+ answerclicked);
+        for (var i = 0; i < 4; i++){
+            var questionspecificarray = setupclicksarray[questionindictator];
+            if (questionspecificarray[i] === true){
+            var possibleanswer = [possibleanswer1[questionindictator], possibleanswer2[questionindictator], possibleanswer3[questionindictator], possibleanswer4[questionindictator]];
+            
+            correctanswer = possibleanswer[i];}
+            $("#answer3").text("correct choice: " + correctanswer);
+        }
+       
+        
     }
+}
+function clearAll(){
+    $(".question").empty();
+    $("#answer1").empty();
+    $("#answer2").empty();
+    $("#answer3").empty();
+    $("#answer4").empty();
 }
     </script>
 
