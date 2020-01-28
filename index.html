@@ -101,32 +101,44 @@ function setupclicks(testoptions){
      $("#answer1").on("click", function(){
          rightorwrongindictator = testoptions[0];
          console.log(rightorwrongindictator);
+         console.log("QI1: " + questionindictator);
          answerclicked = possibleanswer1[questionindictator];
          clearInterval(intervalId);
          winlose();
+         console.log("QI2: " + questionindictator);
+         resart();
          });
      $("#answer2").on("click", function(){
         rightorwrongindictator = testoptions[1];
          console.log(rightorwrongindictator);
+         console.log("QI1: " + questionindictator);
          answerclicked = possibleanswer2[questionindictator];
         clearInterval(intervalId);
          winlose();
+         console.log("QI" + questionindictator);
+         resart();
    
      });
      $("#answer3").on("click", function(){
         rightorwrongindictator = testoptions[2];
          console.log(rightorwrongindictator);
+         console.log("QI1: " + questionindictator);
          answerclicked = possibleanswer3[questionindictator];
          clearInterval(intervalId);
          winlose();
+         console.log("QI" + questionindictator);
+         resart();
    
      });
      $("#answer4").on("click", function(){
         rightorwrongindictator = testoptions[3];
          console.log(rightorwrongindictator);
+         console.log("QI1: " + questionindictator);
          answerclicked = possibleanswer4[questionindictator];
          clearInterval(intervalId);
          winlose();
+         console.log("QI" + questionindictator);
+         resart();
 
      });
     }
@@ -137,6 +149,7 @@ function winlose(){
         $(".question").text("correct");
         $("#picturediv").append(pictures[questionindictator]);
         gifplay();
+       
     
     }
     else {
@@ -147,7 +160,7 @@ function winlose(){
         logcorrectanswer();
         $("#picturediv").append(pictures[questionindictator]);
         gifplay();
-        rightorwrongindictator = true;
+        
        
         
     }
@@ -161,8 +174,8 @@ for (var i = 0; i < 4; i++){
             if (questionspecificarray[i] === true){
             var possibleanswer = [possibleanswer1[questionindictator], possibleanswer2[questionindictator], possibleanswer3[questionindictator], possibleanswer4[questionindictator]];
             
-            correctanswer = possibleanswer[i];}
-            $("#answer3").text("correct choice: " + correctanswer);
+            correctanswer = possibleanswer[i];
+            $("#answer3").text("correct choice: " + correctanswer);}
         };
     };
 function gifplay(){
