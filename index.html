@@ -14,6 +14,7 @@
          <div Id="triviatitle">Trivia Game</div>
              <div class="questionbox">
                  <div class="question">test question?</div>
+                 <div id="timerdiv"></div>
                  <div class="answerbox">
                      <div id="answer1">test answer</div>
                      <div id="answer2">test answer</div>
@@ -30,13 +31,17 @@
     var possibleanswer2 = [0, 1, 2, "3b", 4];
     var possibleanswer3 = [0, 1, 2, "3c", 4];
     var possibleanswer4 = [0, 1, 2, "3d", 4];
-    var questionindictator = 3;
+    var questionindictator = 0;
     var rightorwrongindictator = true;
     var pictures =[0,1,2,3,4];
     var answerclicked = "crazy"; 
-    var correctanswer = "bad"
+    var correctanswer = "bad";
+    var time = 10;
+    var timerRunning = true;
+    var intervalId = null;
 
  function movetonextquestion(){
+ 
     $(".question").html(possiblequestions[questionindictator]);
     for (var i = 0; i <= 4; i++){
          var answerid = '#answer'+i;
@@ -44,13 +49,45 @@
 
          $(answerid).html(possibleanswer[i]);
         }
- };
+    clearInterval(intervalId);
+    time = 10;
+    starttimer();
+    
+
+        
+    };
+
+function starttimer(){
+$("#timerdiv").text(time);
+intervalId = setInterval(start, 1000);
+function start( ){
+if (time > 0){
+    time--;
+    $("#timerdiv").text(time);
+  }
+else{
+    clearInterval(intervalId);
+      clearAll();
+      $(".question").text("to slow joe");
+      logcorrectanswer();
+      $("#picturediv").append(pictures[questionindictator]);
+      gifplay();
+      resart();
+  }
+}
+}
+
+
+
  movetonextquestion();
  var setupclicksarray = [];
  setupclicksarray[0] =[false,false,false,true];
  setupclicksarray[1] =[false,false,true,false];
  setupclicksarray[2] =[false,true,false,false];
  setupclicksarray[3] =[false,false,true,false];
+ setupclicksarray[4] =[false,false,true,false];
+ setupclicksarray[5] =[false,false,true,false];
+ setupclicksarray[6] =[false,false,true,false];
 
  setupclicks(setupclicksarray[questionindictator]);
 
@@ -62,24 +99,33 @@ function setupclicks(testoptions){
          console.log(rightorwrongindictator);
          answerclicked = possibleanswer1[questionindictator];
          console.log
+         questionindictator++;
+         clearInterval(intervalId);
          winlose();
+
          });
      $("#answer2").on("click", function(){
         rightorwrongindictator = testoptions[1];
          console.log(rightorwrongindictator);
          answerclicked = possibleanswer2[questionindictator];
+        questionindictator++;
+        clearInterval(intervalId);
          winlose();
      });
      $("#answer3").on("click", function(){
         rightorwrongindictator = testoptions[2];
          console.log(rightorwrongindictator);
          answerclicked = possibleanswer3[questionindictator];
+         questionindictator++;
+         clearInterval(intervalId);
          winlose();
      });
      $("#answer4").on("click", function(){
         rightorwrongindictator = testoptions[3];
          console.log(rightorwrongindictator);
          answerclicked = possibleanswer4[questionindictator];
+         questionindictator++;
+         clearInterval(intervalId);
          winlose();
      });
     }
@@ -89,6 +135,7 @@ function winlose(){
         clearAll();
         $(".question").text("correct");
         $("#picturediv").append(pictures[questionindictator]);
+        gifplay();
     
     }
     else {
@@ -96,18 +143,35 @@ function winlose(){
         clearAll();
         $(".question").html("incorrect");
         $("#answer1").text("you choose: "+ answerclicked);
-        for (var i = 0; i < 4; i++){
+   logcorrectanswer();
+        $("#picturediv").append(pictures[questionindictator]);
+        gifplay();
+       
+        
+    }
+}
+function resart(){
+    questionindictator++;
+}
+function logcorrectanswer(){
+for (var i = 0; i < 4; i++){
             var questionspecificarray = setupclicksarray[questionindictator];
             if (questionspecificarray[i] === true){
             var possibleanswer = [possibleanswer1[questionindictator], possibleanswer2[questionindictator], possibleanswer3[questionindictator], possibleanswer4[questionindictator]];
             
             correctanswer = possibleanswer[i];}
             $("#answer3").text("correct choice: " + correctanswer);
-        }
-       
-        
-    }
+        };
+    };
+function gifplay(){
+    time = 10;
+    setTimeout(function () {
+    clearAll();
+    $("#picturediv").empty();
+    movetonextquestion();
+  }, 3000)
 }
+
 function clearAll(){
     $(".question").empty();
     $("#answer1").empty();
