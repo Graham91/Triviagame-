@@ -1,0 +1,77 @@
+body {
+    background-image: url("newgirl.png");
+    background-size: 400px;
+    background-position: center ;
+    min-width: 800px;
+
+}
+#mainbox{
+    
+    max-width: 1000px;
+    background-color: blanchedalmond;
+    text-align: center;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-bottom: 100px;
+    margin-top: 50px;
+    
+}
+div:empty {
+    display:none;
+  }
+.questionbox{
+    background-color: bisque;
+    text-align: center;
+    justify-content: center;
+    height: 400px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 35px;
+    padding-top: 10px;
+}
+#triviatitle{
+    font-size: 80px;
+    font-weight: 700;
+    
+}
+.question{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    padding:10px;
+    margin:10px;
+    margin-top: 10px;
+    background-color: rgb(247, 224, 197);
+
+}
+.answerbox{
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    margin: 10px;
+    text-align: center;
+}
+.answerboxindiv{
+    background-color: brown;
+    padding: 10px;
+    font-size: larger;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    margin: 10px;
+}
+.answerboxindiv:hover{
+    background-color: burlywood;
+    border-style: solid;
+    border-color: rgb(85, 66, 32);
+    border-width: 2px;
+}
+#timerdiv{
+    font-size: 40px;
+}
+#fit{
+    width: 350px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
