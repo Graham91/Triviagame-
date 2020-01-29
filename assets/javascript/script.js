@@ -23,6 +23,7 @@ setupclicksarray[3] =[false,false,true,false];
 setupclicksarray[4] =[false,false,false,true];
 setupclicksarray[5] =[false,false,true,false];
 setupclicksarray[6] =[false,false,true,false];
+
 function gamerestart(){
 resart();
 // click();
@@ -82,17 +83,17 @@ $("#answer1").on("click", function(){
      console.log(possibleanswer1[questionindictator])
      if (correctanswer == possibleanswer1[questionindictator]){
        clearAll();
-   $(".question").text("correct");
+   $(".question").text("Correct");
    $("#picturediv").append(pictures[questionindictator]);
    gifplay();
 resart();}
    else {
        clearAll();
        answerclicked = possibleanswer1[questionindictator];
-   $(".question").html("incorrect");
-   $("#lose5").text("you choose: "+ answerclicked);
+   $(".question").html("Incorrect");
+   $("#lose5").text("You Chose: "+ answerclicked);
    $("#picturediv").append(pictures[questionindictator]);
-   $("#lose6").text("correct choice: " + correctanswer);
+   $("#lose6").text("Correct Choice: " + correctanswer);
    gifplay();
    resart();
   }
@@ -104,17 +105,17 @@ console.log(correctanswer);
 console.log(possibleanswer2[questionindictator])
      if (correctanswer == possibleanswer2[questionindictator]){
        clearAll();
-   $(".question").text("correct");
+   $(".question").text("Correct");
    $("#picturediv").append(pictures[questionindictator]);
    gifplay();
    resart();}
    else {
        clearAll();
        answerclicked = possibleanswer2[questionindictator];
-   $(".question").html("incorrect");
-   $("#lose5").text("you choose: "+ answerclicked);
+   $(".question").html("Incorrect");
+   $("#lose5").text("You Chose: "+ answerclicked);
    $("#picturediv").append(pictures[questionindictator]);
-   $("#lose6").text("correct choice: " + correctanswer);
+   $("#lose6").text("Correct Choice: " + correctanswer);
    gifplay()
    resart();;
    
@@ -128,17 +129,17 @@ console.log(correctanswer);
 console.log(possibleanswer3[questionindictator])
      if (correctanswer == possibleanswer3[questionindictator]){
        clearAll();
-   $(".question").text("correct");
+   $(".question").text("Correct");
    $("#picturediv").append(pictures[questionindictator]);
    gifplay();
    resart();}
    else {
        clearAll();
        answerclicked = possibleanswer3[questionindictator];
-   $(".question").html("incorrect");
-   $("#lose5").text("you choose: "+ answerclicked);
+   $(".question").html("Incorrect");
+   $("#lose5").text("You Chose: "+ answerclicked);
    $("#picturediv").append(pictures[questionindictator]);
-   $("#lose6").text("correct choice: " + correctanswer);
+   $("#lose6").text("Correct Choice: " + correctanswer);
    gifplay()
    resart();;
    
@@ -152,17 +153,17 @@ $("#answer4").on("click", function(){
     console.log(possibleanswer4[questionindictator])
      if (correctanswer == possibleanswer4[questionindictator]){
        clearAll();
-   $(".question").text("correct");
+   $(".question").text("Correct");
    $("#picturediv").append(pictures[questionindictator]);
    gifplay();
    resart();}
    else {
        clearAll();
-   $(".question").html("incorrect");
+   $(".question").html("Incorrect");
    answerclicked = possibleanswer4[questionindictator];
-   $("#lose5").text("you choose: "+ answerclicked);
+   $("#lose5").text("You Chose: "+ answerclicked);
    $("#picturediv").append(pictures[questionindictator]);
-   $("#lose6").text("correct choice: " + correctanswer);
+   $("#lose6").text("Correct Choice: " + correctanswer);
    gifplay();
    resart();
    }
@@ -202,7 +203,7 @@ for (var i = 0; i < 4; i++){
        var possibleanswer = [possibleanswer1[questionindictator], possibleanswer2[questionindictator], possibleanswer3[questionindictator], possibleanswer4[questionindictator]];
        
        correctanswer = possibleanswer[i];
-       $("#answer3").text("correct choice: " + correctanswer);}
+       $("#lose5").text("correct choice: " + correctanswer);}
    };
 };
 function gifplay(){
@@ -223,3 +224,4 @@ $("#answer2").empty();
 $("#answer3").empty();
 $("#answer4").empty();
 }
+
